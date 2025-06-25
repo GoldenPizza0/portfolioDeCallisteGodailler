@@ -105,6 +105,9 @@ header h1 {
 .mobile-nav a {
     font-size: 1.3rem;
     padding: 20px 40px;
+    width: 250px;
+    text-align: center;
+    box-sizing: border-box;
 }
 
 .projects {
