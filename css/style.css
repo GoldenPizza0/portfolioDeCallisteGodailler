@@ -113,6 +113,19 @@ header h1 {
     display: block;
 }
 
+.mobile-nav a.linkedin-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.linkedin-icon {
+    width: 20px;
+    height: 20px;
+    filter: brightness(0) invert(1);
+}
+
 .projects {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -522,11 +535,12 @@ footer{
     .stage {
         max-width: calc(100vw - 50px);
         width: calc(100vw - 50px);
-        padding: 20px 12px;
+        padding: 20px 12px 30px 12px;
         margin: 0;
         box-sizing: border-box;
-        overflow: hidden;
+        overflow: visible;
         word-wrap: break-word;
+        min-height: fit-content;
     }
 
     .stage-title h3 {
@@ -542,6 +556,11 @@ footer{
     .stage-btn {
         padding: 12px 25px;
         font-size: 1.1rem;
+        margin-top: 15px;
+        display: block;
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     /* Projets - un par ligne */
