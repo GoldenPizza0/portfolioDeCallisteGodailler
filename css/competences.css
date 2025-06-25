@@ -1,6 +1,7 @@
 body {
     padding: 40px;
     background-color: #fff;
+    font-family: sans-serif;
 }
 
 h1{
@@ -44,8 +45,11 @@ h1{
     transform-style: preserve-3d;
 }
 
-.flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
+/* Desktop hover behavior */
+@media (hover: hover) and (pointer: fine) {
+    .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+    }
 }
 
 .flip-card-front,
@@ -99,6 +103,7 @@ h1{
     justify-content: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s, background 0.3s;
+    z-index: 1000;
 }
 
 #backToIndex a{
@@ -109,4 +114,121 @@ h1{
 #backToIndex:hover {
     background: #333;
     transform: scale(1.1);
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+    body {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.5rem !important;
+        margin-bottom: 20px;
+    }
+
+    .skills-section {
+        padding: 10px;
+    }
+
+    .skills-category {
+        margin-bottom: 30px;
+    }
+
+    .skills-category h2 {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+    }
+
+    /* One card per row on mobile */
+    .card-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .flip-card {
+        height: 120px;
+    }
+
+    .flip-card-front img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .flip-card-back {
+        font-size: 0.8rem;
+        background-size: 60px;
+    }
+
+    #backToIndex {
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+        top: 15px;
+        left: 15px;
+    }
+}
+
+/* Very small screens */
+@media (max-width: 480px) {
+    body {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.3rem !important;
+    }
+
+    .card-grid {
+        max-width: 320px;
+    }
+
+    .flip-card {
+        height: 100px;
+    }
+
+    .flip-card-front img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .flip-card-back {
+        font-size: 0.7rem;
+        background-size: 50px;
+    }
+}
+
+/* Touch-specific styles for mobile cards */
+@media (hover: none) and (pointer: coarse) {
+    .flip-card {
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    /* Disable hover effects on touch devices */
+    .flip-card:hover .flip-card-inner {
+        transform: none;
+    }
+    
+    /* Add active state for touch feedback */
+    .flip-card:active {
+        transform: scale(0.98);
+        transition: transform 0.1s;
+    }
+}
+
+/* Flipped state for mobile touch interaction */
+.flip-card.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Smooth transitions for all interactions */
+.flip-card {
+    transition: transform 0.1s ease;
+}
+
+.flip-card-inner {
+    transition: transform 0.6s ease;
 }
