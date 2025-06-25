@@ -4,6 +4,10 @@ body {
     color: #222;
     margin: 0;
     padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
 }
 
 .veille-container {
@@ -81,6 +85,7 @@ strong {
     justify-content: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s, background 0.3s;
+    z-index: 1000;
 }
 
 #backToIndex a{
@@ -91,4 +96,106 @@ strong {
 #backToIndex:hover {
     background: #333;
     transform: scale(1.1);
+}
+
+/* Responsive design for mobile devices */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+    align-items: flex-start;
+    min-height: auto;
+  }
+
+  .veille-container {
+    width: calc(100vw - 20px);
+    max-width: none;
+    margin: 0;
+    padding: 20px;
+    border-radius: 12px;
+    box-sizing: border-box;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+    margin-top: 25px;
+  }
+
+  section p {
+    font-size: 1.15rem;
+    line-height: 1.6;
+  }
+
+  ul {
+    padding-left: 15px;
+  }
+
+  section ul ul {
+    padding-left: 15px;
+  }
+
+  ul li {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+
+  .conclusion {
+    font-size: 1.15rem;
+    margin-top: 30px;
+  }
+
+  #backToIndex {
+    width: 60px;
+    height: 60px;
+    font-size: 28px;
+    top: 15px;
+    left: 15px;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 480px) {
+  body {
+    padding: 8px;
+  }
+
+  .veille-container {
+    width: calc(100vw - 16px);
+    padding: 16px;
+    border-radius: 8px;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+    margin-bottom: 18px;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+    margin-top: 20px;
+  }
+
+  section p {
+    font-size: 1.2rem;
+  }
+
+  ul li {
+    font-size: 1.15rem;
+  }
+
+  .conclusion {
+    font-size: 1.2rem;
+  }
+
+  #backToIndex {
+    width: 60px;
+    height: 60px;
+    font-size: 28px;
+    top: 12px;
+    left: 12px;
+  }
 }
