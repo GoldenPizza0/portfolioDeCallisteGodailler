@@ -1,0 +1,96 @@
+.divCV{
+    text-align: center;
+}
+
+body {
+    padding: 40px;
+    background-color: #fff;
+}
+
+form {
+    max-width: 600px;
+    margin: auto;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 6px;
+    color: #333;
+}
+
+label span {
+    font-weight: normal;
+    color: #888;
+    font-size: 0.9em;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 25px;
+    border: 1px solid #888;
+    border-radius: 0; /* cadre pointu */
+    font-size: 16px;
+    box-sizing: border-box;
+    background-color: #fff;
+    color: #000;
+}
+
+textarea {
+    background-color: #ffffff; /* plus foncé */
+    resize: vertical;
+    min-height: 180px;
+}
+
+button {
+    background-color: #0d1218;
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #1b1f24;
+}
+
+@media (max-width: 600px) {
+    body {
+    padding: 20px;
+    }
+}
+
+#backToIndex {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    background: #000;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, background 0.3s;
+}
+
+#backToIndex a{
+    text-decoration: none;
+    color: #fff;
+}
+
+#backToIndex:hover {
+    background: #333;
+    transform: scale(1.1);
+}

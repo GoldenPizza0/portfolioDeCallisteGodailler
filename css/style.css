@@ -1,0 +1,403 @@
+/* Police élégante et centrage général */
+body {
+    font-family: 'Georgia', serif;
+    background: #fff;
+    margin: 40px;
+    position: relative;
+}
+
+/* Titre du portfolio */
+header h1 {
+    font-size: 1.5rem;
+    line-height: 1;
+    margin: 0;
+}
+
+/* Icône LinkedIn en haut à droite */
+.linkedin {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+}
+
+.linkedin img {
+    width: 24px;
+    height: 24px;
+}
+
+/* Barre de navigation centrée */
+nav {
+    margin-top: 60px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Style des boutons */
+nav a {
+    display: inline-block;
+    padding: 15px 30px;
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+nav a:hover {
+    background: #333;
+    transform: scale(1.05);
+}
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+}
+
+.project {
+    text-align: center;
+}
+
+.project img {
+    max-width: 100%;
+    height: auto;
+}
+
+.project-info {
+    margin-top: 20px;
+}
+
+.project-info h2 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.project-info .date {
+    color: #666;
+    margin: 5px 0;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 20px;
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+    background: #333;
+    transform: scale(1.05);
+}
+
+
+/* Responsive spacing for small screens */
+@media (max-width: 600px) {
+    body {
+        margin: 20px;
+    }
+}
+
+h2{
+    font-size: 2rem;
+    line-height: 0.5;
+}
+
+body p{
+    font-family: sans-serif;
+}
+
+.projects + .projects {
+    margin-top: 60px;
+}
+
+/* Container titre-date */
+.title-date {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 15px;
+}
+
+/* Titre à gauche */
+.title-date .title {
+    font-weight: bold;
+    text-align: left;
+    flex: 1;
+    font-size: 1.1rem;
+    line-height: 1.3;
+}
+
+.title-date .titlel1{
+    margin-left: 6rem;
+}
+
+/* Date à droite */
+.title-date .date {
+    color: #666;
+    white-space: nowrap;
+    font-size: 0.95rem;
+    margin-left: 15px;
+}
+
+.title-date .datel1{
+    text-align: right;
+    margin-right: 7rem;
+}
+
+.project img .l2{
+    width: 100%;
+    height: 180px; /* ou une autre hauteur selon ton design */
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
+button{
+    align-items: start;
+}
+
+.contact{
+    text-align: center;
+    margin-top: 40px;
+}
+
+.imgC{
+    border-radius: 100%;
+    height: 180px;
+    width: auto;
+}
+
+/* SECTION STAGES */
+.stages {
+    text-align: center;
+    margin: 100px auto;
+    max-width: 1200px;
+    padding: 0 20px;
+}
+
+.stages h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 60px;
+    line-height: 1.3;
+}
+
+.stage-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+}
+
+.stage {
+    flex: 1 1 300px;
+    max-width: 350px;
+    border: 1px solid #ccc;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    border-radius: 0; /* coins pointus */
+    background: white;
+}
+
+.stage-title span {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 1rem;
+    text-align: left;
+}
+
+.stage-title h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.stage ul {
+    text-align: left;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 30px 0;
+}
+
+.stage ul li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 10px;
+    font-family: sans-serif;
+}
+
+.stage ul li::before {
+    content: "✦";
+    position: absolute;
+    left: 0;
+    color: #000;
+    font-size: 0.8em;
+    top: 0;
+}
+
+.stage-btn {
+    padding: 10px 20px;
+    background: white;
+    color: black;
+    border: 1px solid black;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.stage-btn:hover {
+    background: black;
+    color: white;
+}
+
+.stage-btn.black {
+    background: black;
+    color: white;
+    border: none;
+}
+
+.stage-btn.black:hover {
+    background: #333;
+}
+
+.stageMi{
+    border: 1px solid #000000;
+}
+
+.contact-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.contact-left {
+    flex: 1 1 300px;
+}
+
+.contact-left h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.contact-left p {
+    font-size: 1rem;
+    color: #444;
+    max-width: 500px;
+}
+
+.contact-form {
+    flex: 1 1 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.form-group span {
+    color: #888;
+    font-weight: 400;
+    font-size: 0.9em;
+}
+
+input,
+textarea {
+    border: none;
+    background: #f7f9fc;
+    padding: 14px;
+    font-size: 1rem;
+    border-radius: 0; /* coins pointus */
+    outline: none;
+    resize: vertical;
+    transition: border 0.3s;
+}
+
+input:focus,
+textarea:focus {
+    border: 1px solid #000;
+}
+
+.submit-btn {
+    align-self: flex-start;
+    padding: 12px 24px;
+    background: #0f1117;
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 6px;
+}
+
+.submit-btn:hover {
+    background: #333;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contact-section {
+        flex-direction: column;
+    }
+
+    .contact-left,
+    .contact-form {
+        width: 100%;
+    }
+}
+
+#backToTop {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: #000;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: opacity 0.3s, transform 0.3s;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#backToTop.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#backToTop:hover {
+    background: #333;
+    transform: translateY(-5px);
+}
+
+footer{
+    text-align: center;
+}

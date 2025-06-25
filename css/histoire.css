@@ -1,0 +1,84 @@
+/* Reset minimal */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+
+    /* Centrage vertical + horizontal */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px 40px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+h1 {
+    color: #2c3e50;
+    margin-bottom: 24px;
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+.project-description p {
+    margin-bottom: 16px;
+    font-size: 1.1rem;
+}
+
+.project-description strong {
+    color: #2c3e50;
+}
+
+.project-description a {
+    color: #2980b9;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.project-description a:hover,
+.project-description a:focus {
+    text-decoration: underline;
+}
+
+#backToIndex {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    background: #000;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, background 0.3s;
+}
+
+#backToIndex a{
+    text-decoration: none;
+    color: #fff;
+}
+
+#backToIndex:hover {
+    background: #333;
+    transform: scale(1.1);
+}

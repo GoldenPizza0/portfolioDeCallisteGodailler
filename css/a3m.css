@@ -1,0 +1,127 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f4f4f4;
+    color: #222;
+    margin: 0;
+    padding: 20px;
+}
+
+.post-container {
+    max-width: 700px;
+    margin: auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+h1 {
+    font-size: 1.8rem;
+    text-align: center;
+    color: #005288;
+    margin-bottom: 20px;
+}
+
+.intro {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.company-info p,
+.theme p,
+.closing p {
+    margin: 8px 0;
+    font-size: 0.95rem;
+}
+
+.company-info p:first-child {
+     margin-top: 0;
+}
+
+.theme h2,
+.missions h2 {
+    margin-top: 30px;
+    color: #0073b1;
+    font-size: 1.2rem;
+}
+
+.missions ul {
+    padding-left: 20px;
+    list-style: none;
+    margin-top: 10px;
+}
+
+.missions li {
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    position: relative;
+    padding-left: 20px;
+}
+
+.missions li::before {
+    content: "•";
+    color: #0073b1;
+    position: absolute;
+    left: 0;
+}
+
+.closing {
+    margin-top: 30px;
+    font-style: italic;
+    color: #333;
+}
+
+.closing p:last-child {
+    font-weight: bold;
+    color: #555;
+}
+
+.linkedin-button {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.linkedin-button a {
+    display: inline-block;
+    background-color: #0073b1;
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.linkedin-button a:hover {
+    background-color: #005582;
+}
+
+#backToIndex {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    background: #000;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, background 0.3s;
+}
+
+#backToIndex a{
+    text-decoration: none;
+    color: #fff;
+}
+
+#backToIndex:hover {
+    background: #333;
+    transform: scale(1.1);
+}
