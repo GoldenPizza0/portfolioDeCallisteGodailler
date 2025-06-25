@@ -1,82 +1,77 @@
-// function sendMail() {
-//     const name = document.getElementById("name").value.trim();
-//     const email = document.getElementById("email").value.trim();
-//     const message = document.getElementById("message").value.trim();
-
-//     const subject = encodeURIComponent("Nouveau message de contact");
-//     const body = encodeURIComponent(
-//         `Nom: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
-//     );
-
-//     const mailtoLink = `mailto:godacalliste@gmail.com?subject=${subject}&body=${body}`;
-//     window.location.href = mailtoLink;
-
-//     return false;
-// }
-
-// const backToTopButton = document.getElementById('backToTop');
-
-// window.addEventListener('scroll', () => {
-//   if (window.scrollY > 200) {
-//     backToTopButton.classList.add('show');
-//   } else {
-//     backToTopButton.classList.remove('show');
-//   }
-// });
-
-// backToTopButton.addEventListener('click', () => {
-//   window.scrollTo({
-//     top: 0,
-//     behavior: 'smooth'
-//   });
-// });
-
 document.addEventListener("DOMContentLoaded", function () {
-  // Fonction d'envoi de mail via mailto
-  function sendMail() {
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const message = document.getElementById("message").value.trim();
+    // Gestion du menu burger
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileNav = document.getElementById('mobile-nav');
 
-    const subject = encodeURIComponent("Nouveau message de contact");
-    const body = encodeURIComponent(
-      `Nom: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
-    );
+    if (mobileMenuToggle && mobileNav) {
+        mobileMenuToggle.addEventListener('click', function() {
+            mobileMenuToggle.classList.toggle('open');
+            mobileNav.classList.toggle('open');
+        });
 
-    const mailtoLink = `mailto:godacalliste@gmail.com?subject=${subject}&body=${body}`;
-    window.location.href = mailtoLink;
+        // Fermer le menu quand on clique sur un lien
+        const mobileNavLinks = mobileNav.querySelectorAll('a');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenuToggle.classList.remove('open');
+                mobileNav.classList.remove('open');
+            });
+        });
 
-    return false; // empêche la soumission du formulaire classique
-  }
+        // Fermer le menu si on clique en dehors
+        mobileNav.addEventListener('click', function(e) {
+            if (e.target === mobileNav) {
+                mobileMenuToggle.classList.remove('open');
+                mobileNav.classList.remove('open');
+            }
+        });
+    }
 
-  // Expose sendMail dans le scope global pour que le formulaire puisse l'appeler
-  window.sendMail = sendMail;
+    // Fonction d'envoi de mail via mailto
+    function sendMail() {
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const message = document.getElementById("message").value.trim();
 
-  // Gestion du bouton "backToTop"
-  const backToTopButton = document.getElementById('backToTop');
+        const subject = encodeURIComponent("Nouveau message de contact");
+        const body = encodeURIComponent(
+            `Nom: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+        );
 
-  if (backToTopButton) {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 200) {
-        backToTopButton.classList.add('show');
-      } else {
-        backToTopButton.classList.remove('show');
-      }
-    });
+        const mailtoLink = `mailto:godacalliste@gmail.com?subject=${subject}&body=${body}`;
+        window.location.href = mailtoLink;
 
-    backToTopButton.addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
-  }
+        return false; // empêche la soumission du formulaire classique
+    }
+
+    // Expose sendMail dans le scope global pour que le formulaire puisse l'appeler
+    window.sendMail = sendMail;
+
+    // Gestion du bouton "backToTop"
+    const backToTopButton = document.getElementById('backToTop');
+
+    if (backToTopButton) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 200) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
 });
+
 /**
  * Mobile interactions for skill cards
  * Simple touch-based card flipping for mobile devices
  */
-
 class MobileCardInteractions {
     constructor() {
         this.flippedCards = new Set();

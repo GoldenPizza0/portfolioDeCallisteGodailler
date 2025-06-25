@@ -2,6 +2,7 @@
 <html lang="fr">
     <head>
         <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Portfolio de Calliste Godailler</title>
         <link rel="icon" type="image/x-icon" href="img/pp.ico">
         <link rel="stylesheet" href="css/style.css">
@@ -18,7 +19,26 @@
             </a>
         </header>
 
-        <nav>
+        <!-- Menu burger pour mobile -->
+        <div class="mobile-menu-toggle" id="mobile-menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <!-- Navigation desktop -->
+        <nav class="desktop-nav">
+            <a href="#APROPOS">A PROPOS</a>
+            <a href="#STAGES">STAGES</a>
+            <a href="#SCOLAIRE">SCOLAIRE</a>
+            <a href="#PERSONNEL">PERSONNEL</a>          
+            <a href="#CONTACT">CONTACT</a>
+            <a href="articles/cv.html">CV</a>
+            <a href="articles/competences.html">COMPÉTENCES</a>
+        </nav>
+
+        <!-- Navigation mobile -->
+        <nav class="mobile-nav" id="mobile-nav">
             <a href="#APROPOS">A PROPOS</a>
             <a href="#STAGES">STAGES</a>
             <a href="#SCOLAIRE">SCOLAIRE</a>
@@ -31,7 +51,7 @@
         <br id="APROPOS">
 
         <div class="contact">
-            <img src="img/pp.png" class="imgC">
+            <img src="img/pp.png" class="imgC" alt="Photo de profil">
             <h2>Calliste GODAILLER</h2>
             <p>
                 Etudiante en seconde année de BTS Service<br> 
@@ -50,7 +70,7 @@
                 <div class="stage">
                     <div class="stage-title">
                         <span>6 semaines</span>
-                        <h3>ART’S WAVE</h3>
+                        <h3>ART'S WAVE</h3>
                     </div>
                     <ul>
                         <li>Langage PHP</li>
@@ -69,7 +89,7 @@
                         <li>Découverte de WinDev 21</li>
                         <li>Découverte de WinDev 21 Mobile</li>
                         <li>Découverte de WinDev 2025</li>
-                        <li>Production d’une Application Android complète</li>
+                        <li>Production d'une Application Android complète</li>
                     </ul>
                     <a href="articles/a3m.html"><button class="stage-btn black">En savoir plus</button></a>
                 </div>
@@ -154,7 +174,7 @@
                 <img src="img/ttj.png" alt="Trouve Ton Job">
                 <div class="project-info">
                     <div class="title-date">
-                        <span class="title">AP. Application Web et<br>Android de Plateforme<br>de recherche d’emplois</span>
+                        <span class="title">AP. Application Web et<br>Android de Plateforme<br>de recherche d'emplois</span>
                         <span class="date">10/24 – 12/24</span>
                     </div>
                 </div>
@@ -168,7 +188,7 @@
         <h2>PROJETS PERSONNELS</h2>
         <p>
             Ces projets ont été réalisés de manière autonome, en dehors du cadre scolaire,<br>
-            afin d’explorer et de mettre en pratique mes compétences en développement.
+            afin d'explorer et de mettre en pratique mes compétences en développement.
         </p>
 
         <br>
@@ -195,7 +215,7 @@
                     </div>
                 </div>
                 <br>
-                <button class="btn" onclick="window.location.href='https://goldenpizza0.github.io/website_osteo/'">En savoir plus</button>
+                <button class="btn" onclick="window.location.href='https://goldenpizza0.github.io/website_osteo/';">En savoir plus</button>
             </article>
 
             <article class="project l2">
@@ -216,17 +236,17 @@
         <section class="contact-section">
             <div class="contact-left">
                 <h2>Contactez moi</h2>
-                <p>N’hésitez pas à me contacter pour plus d’informations en complétant le formulaire ci-contre.</p>
+                <p>N'hésitez pas à me contacter pour plus d'informations en complétant le formulaire ci-contre.</p>
             </div>
 
             <form class="contact-form" onsubmit="return sendMail();">
                 <div class="form-group">
-                <label for="name">Name <span>(requis)</span></label>
+                <label for="name">Nom <span>(requis)</span></label>
                 <input type="text" id="name" name="name" required />
                 </div>
 
                 <div class="form-group">
-                <label for="email">Email <span>(requis)</span></label>
+                <label for="email">E-mail <span>(requis)</span></label>
                 <input type="email" id="email" name="email" required />
                 </div>
 
