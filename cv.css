@@ -1,4 +1,6 @@
+/* === GLOBAL === */
 body {
+    margin: 0;
     padding: 40px;
     background-color: #fff;
     font-family: Arial, sans-serif;
@@ -12,25 +14,43 @@ h1 {
     margin-bottom: 20px;
 }
 
+/* === DIV CV === */
 .divCV {
     text-align: center;
     margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+/* === IFRAME CV === */
 .cv-frame {
     width: 100%;
     max-width: 800px;
     height: 900px;
     border: none;
+    margin: 0 auto;
     display: block;
-    margin: auto;
 }
 
-/* Formulaire */
+/* === FORMULAIRE === */
 form {
     max-width: 600px;
-    margin: auto;
+    margin: 40px auto;
     font-size: 1.1em;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 6px;
+    color: #333;
+}
+
+label span {
+    font-weight: normal;
+    color: #888;
+    font-size: 0.9em;
 }
 
 input[type="text"],
@@ -41,6 +61,10 @@ textarea {
     margin-bottom: 25px;
     border: 1px solid #888;
     font-size: 1em;
+    box-sizing: border-box;
+    background-color: #fff;
+    color: #000;
+    border-radius: 4px;
 }
 
 textarea {
@@ -56,13 +80,14 @@ button {
     font-size: 1em;
     border-radius: 6px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
     background-color: #1b1f24;
 }
 
-/* Bouton retour */
+/* === BOUTON RETOUR === */
 #backToIndex {
     position: fixed;
     top: 20px;
@@ -78,6 +103,8 @@ button:hover {
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, background 0.3s;
 }
 
 #backToIndex:hover {
@@ -85,7 +112,7 @@ button:hover {
     transform: scale(1.1);
 }
 
-/* 📱 Version mobile */
+/* === RESPONSIVE MOBILE === */
 @media screen and (max-width: 768px) {
     body {
         padding: 16px;
@@ -93,18 +120,33 @@ button:hover {
     }
 
     h1 {
-        font-size: 2em;
+        font-size: 2.2em;
     }
 
     .cv-frame {
-        height: 600px;
+        width: 100%;
+        height: 80vh; /* hauteur relative à l'écran */
+    }
+
+    form {
+        font-size: 1.3em;
     }
 
     input[type="text"],
     input[type="email"],
     textarea,
     button {
-        font-size: 1.1em;
+        font-size: 1.2em;
         padding: 18px;
+    }
+
+    label {
+        font-size: 1.1em;
+    }
+
+    #backToIndex {
+        width: 65px;
+        height: 65px;
+        font-size: 30px;
     }
 }
