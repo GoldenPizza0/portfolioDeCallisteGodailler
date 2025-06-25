@@ -443,6 +443,7 @@ footer{
     body {
         margin: 15px;
         font-size: 1.1rem;
+        overflow-x: hidden;
     }
 
     /* Cacher navigation desktop, montrer menu burger */
@@ -506,9 +507,11 @@ footer{
     }
 
     .stage {
-        max-width: 100%;
+        max-width: calc(100vw - 30px);
         width: 100%;
-        padding: 25px;
+        padding: 25px 15px;
+        margin: 0;
+        box-sizing: border-box;
     }
 
     .stage-title h3 {
@@ -624,45 +627,82 @@ footer{
 /* Très petits écrans */
 @media (max-width: 480px) {
     body {
-        margin: 10px;
-        font-size: 1.2rem;
+        margin: 8px;
+        font-size: 1rem;
+        padding: 0;
+    }
+
+    header {
+        padding-right: 50px;
     }
 
     header h1 {
-        font-size: 1.6rem;
+        font-size: 1.4rem;
+        line-height: 1.1;
     }
 
     h2 {
-        font-size: 2.2rem !important;
+        font-size: 1.8rem !important;
+        margin: 20px 0;
     }
 
     .contact h2 {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 
     .mobile-menu-toggle {
-        right: 15px;
-        top: 15px;
+        right: 10px;
+        top: 10px;
+        transform: scale(0.9);
     }
 
     .linkedin {
-        top: 15px;
-        right: 60px;
+        top: 10px;
+        right: 10px;
+    }
+
+    .linkedin img {
+        width: 20px;
+        height: 20px;
     }
 
     .projects {
-        gap: 25px;
+        gap: 20px;
+        padding: 0 5px;
     }
 
     .project {
-        padding: 15px;
+        padding: 12px;
     }
 
     .title-date .title {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+        line-height: 1.2;
     }
 
     .title-date .date {
-        font-size: 1rem;
+        font-size: 0.9rem;
+    }
+
+    .stages {
+        padding: 0 5px;
+    }
+
+    .stage {
+        padding: 15px;
+    }
+
+    .contact-section {
+        padding: 20px 5px;
+    }
+
+    .imgC {
+        height: 100px;
+        max-width: 100px;
+    }
+
+    .btn {
+        padding: 10px 18px;
+        font-size: 0.9rem;
     }
 }
