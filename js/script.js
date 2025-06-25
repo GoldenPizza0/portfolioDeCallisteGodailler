@@ -72,103 +72,75 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
-
 /**
  * Mobile interactions for skill cards
- * Handles touch-based card flipping on mobile devices
+ * Simple touch-based card flipping for mobile devices
  */
 
 class MobileCardInteractions {
     constructor() {
-        this.isMobile = this.detectMobile();
         this.flippedCards = new Set();
         this.init();
     }
 
     /**
-     * Detect if the device is mobile based on multiple factors
+     * Detect if device is mobile/touch
      */
-    detectMobile() {
-        // Check for touch capability and screen size
-        const hasTouchScreen = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-        const isSmallScreen = window.innerWidth <= 768;
-        const isMobileUserAgent = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-        
-        return hasTouchScreen && (isSmallScreen || isMobileUserAgent);
+    isMobile() {
+        return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
     }
 
     /**
-     * Initialize mobile interactions
+     * Initialize interactions
      */
     init() {
-        if (!this.isMobile) {
-            return; // Exit if not on mobile
+        // Wait for DOM to be ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => this.setupCards());
+        } else {
+            this.setupCards();
         }
-
-        this.setupCardListeners();
-        this.setupResizeListener();
-        
-        // Add mobile class to body for additional styling if needed
-        document.body.classList.add('mobile-device');
     }
 
     /**
-     * Setup event listeners for card interactions
+     * Setup card interactions
      */
-    setupCardListeners() {
-        const cards = document.querySelectorAll('[data-mobile-card]');
+    setupCards() {
+        const cards = document.querySelectorAll('.flip-card[data-mobile-card]');
         
         cards.forEach(card => {
-            // Remove any existing listeners
-            card.removeEventListener('click', this.handleCardClick.bind(this));
-            card.removeEventListener('touchstart', this.handleTouchStart.bind(this));
-            card.removeEventListener('touchend', this.handleTouchEnd.bind(this));
-            
-            // Add new listeners
-            card.addEventListener('click', this.handleCardClick.bind(this));
-            card.addEventListener('touchstart', this.handleTouchStart.bind(this), { passive: true });
-            card.addEventListener('touchend', this.handleTouchEnd.bind(this), { passive: true });
-            
-            // Prevent context menu on long press
-            card.addEventListener('contextmenu', (e) => {
-                e.preventDefault();
-            });
+            // Only add mobile interactions if it's a touch device
+            if (this.isMobile()) {
+                this.setupMobileCard(card);
+            }
         });
     }
 
     /**
-     * Handle touch start event
+     * Setup mobile-specific card behavior
      */
-    handleTouchStart(event) {
-        const card = event.currentTarget;
-        card.setAttribute('data-touch-start', Date.now());
-    }
-
-    /**
-     * Handle touch end event
-     */
-    handleTouchEnd(event) {
-        const card = event.currentTarget;
-        const touchStart = card.getAttribute('data-touch-start');
-        const touchDuration = Date.now() - parseInt(touchStart);
+    setupMobileCard(card) {
+        // Remove any existing listeners
+        card.removeEventListener('click', card._mobileClickHandler);
         
-        // Only process if it's a quick tap (less than 500ms)
-        if (touchDuration < 500) {
+        // Create and store the click handler
+        card._mobileClickHandler = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
             this.toggleCard(card);
-        }
+        };
         
-        card.removeAttribute('data-touch-start');
-    }
-
-    /**
-     * Handle card click event
-     */
-    handleCardClick(event) {
-        event.preventDefault();
-        event.stopPropagation();
+        // Add click listener
+        card.addEventListener('click', card._mobileClickHandler);
         
-        const card = event.currentTarget;
-        this.toggleCard(card);
+        // Prevent context menu
+        card.addEventListener('contextmenu', (e) => e.preventDefault());
+        
+        // Add mobile styling
+        card.style.cursor = 'pointer';
+        card.style.touchAction = 'manipulation';
+        card.style.userSelect = 'none';
+        card.style.webkitUserSelect = 'none';
     }
 
     /**
@@ -177,111 +149,30 @@ class MobileCardInteractions {
     toggleCard(card) {
         const cardId = this.getCardId(card);
         
-        if (this.flippedCards.has(cardId)) {
-            // Card is currently flipped, flip it back
+        if (card.classList.contains('flipped')) {
             card.classList.remove('flipped');
             this.flippedCards.delete(cardId);
         } else {
-            // Card is not flipped, flip it
             card.classList.add('flipped');
             this.flippedCards.add(cardId);
         }
-
+        
         // Add haptic feedback if available
-        this.addHapticFeedback();
-    }
-
-    /**
-     * Get unique identifier for a card
-     */
-    getCardId(card) {
-        // Use the alt text of the image as identifier
-        const img = card.querySelector('.flip-card-front img');
-        return img ? img.getAttribute('alt') : Math.random().toString(36).substr(2, 9);
-    }
-
-    /**
-     * Add haptic feedback for supported devices
-     */
-    addHapticFeedback() {
         if ('vibrate' in navigator) {
-            navigator.vibrate(50); // Short vibration
+            navigator.vibrate(50);
         }
     }
 
     /**
-     * Setup resize listener to handle orientation changes
+     * Get unique ID for card
      */
-    setupResizeListener() {
-        let resizeTimeout;
-        
-        window.addEventListener('resize', () => {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(() => {
-                const wasMobile = this.isMobile;
-                this.isMobile = this.detectMobile();
-                
-                // If device type changed, reinitialize
-                if (wasMobile !== this.isMobile) {
-                    if (this.isMobile) {
-                        this.setupCardListeners();
-                        document.body.classList.add('mobile-device');
-                    } else {
-                        this.cleanup();
-                        document.body.classList.remove('mobile-device');
-                    }
-                }
-            }, 250);
-        });
-    }
-
-    /**
-     * Clean up mobile interactions
-     */
-    cleanup() {
-        const cards = document.querySelectorAll('[data-mobile-card]');
-        
-        cards.forEach(card => {
-            card.classList.remove('flipped');
-            card.removeEventListener('click', this.handleCardClick);
-            card.removeEventListener('touchstart', this.handleTouchStart);
-            card.removeEventListener('touchend', this.handleTouchEnd);
-        });
-        
-        this.flippedCards.clear();
-    }
-
-    /**
-     * Reset all cards to their initial state
-     */
-    resetAllCards() {
-        const cards = document.querySelectorAll('[data-mobile-card]');
-        
-        cards.forEach(card => {
-            card.classList.remove('flipped');
-        });
-        
-        this.flippedCards.clear();
+    getCardId(card) {
+        const img = card.querySelector('.flip-card-front img');
+        return img ? img.getAttribute('alt') || 'card-' + Math.random().toString(36).substr(2, 9) : 'unknown';
     }
 }
 
-// Initialize when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    // Small delay to ensure all styles are loaded
-    setTimeout(() => {
-        window.mobileCardInteractions = new MobileCardInteractions();
-    }, 100);
+// Initialize when page loads
+window.addEventListener('DOMContentLoaded', () => {
+    window.mobileCardInteractions = new MobileCardInteractions();
 });
-
-// Handle page visibility changes to reset cards when page becomes visible
-document.addEventListener('visibilitychange', () => {
-    if (!document.hidden && window.mobileCardInteractions) {
-        // Optional: Reset cards when page becomes visible
-        // window.mobileCardInteractions.resetAllCards();
-    }
-});
-
-// Export for potential external use
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = MobileCardInteractions;
-}

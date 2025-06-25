@@ -205,6 +205,13 @@ h1{
     .flip-card {
         cursor: pointer;
         -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        position: relative;
+        z-index: 1;
     }
     
     /* Disable hover effects on touch devices */
