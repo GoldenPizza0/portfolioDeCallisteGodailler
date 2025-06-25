@@ -9,25 +9,13 @@ body {
     text-align: center;
 }
 
-h1 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
-
-/* iframe responsive */
-.iframe-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 40px;
-}
-
-.iframe-container iframe {
-    width: 80%;
-    height: 850px;
+iframe {
     border: none;
+    width: 40%;
+    height: 850px;
 }
 
-/* formulaire */
+/* Formulaire */
 form {
     max-width: 600px;
     margin: auto;
@@ -38,7 +26,6 @@ label {
     display: block;
     margin-bottom: 6px;
     color: #333;
-    font-size: 1rem;
 }
 
 label span {
@@ -58,6 +45,7 @@ textarea {
     font-size: 16px;
     box-sizing: border-box;
     background-color: #fff;
+    color: #000;
 }
 
 textarea {
@@ -65,7 +53,7 @@ textarea {
     min-height: 180px;
 }
 
-button {
+button[type="submit"] {
     background-color: #0d1218;
     color: white;
     border: none;
@@ -76,11 +64,11 @@ button {
     transition: background-color 0.3s ease;
 }
 
-button:hover {
+button[type="submit"]:hover {
     background-color: #1b1f24;
 }
 
-/* bouton retour */
+/* Bouton retour */
 #backToIndex {
     position: fixed;
     top: 20px;
@@ -105,33 +93,52 @@ button:hover {
     transform: scale(1.1);
 }
 
-/* --- Responsive --- */
+/* Téléchargement du CV - caché sur desktop */
+.cv-download-button {
+    display: none;
+}
+
+/* Responsive Mobile */
 @media (max-width: 768px) {
     body {
         padding: 20px;
+        font-size: 18px;
     }
 
-    h1 {
-        font-size: 1.6rem;
+    iframe {
+        display: none;
     }
 
-    label,
-    input,
-    textarea,
-    button {
-        font-size: 1.1rem;
+    form {
+        font-size: 18px;
     }
 
-    .iframe-container iframe {
-        width: 100%;
-        height: 500px;
+    input[type="text"],
+    input[type="email"],
+    textarea {
+        font-size: 18px;
+    }
+
+    label {
+        font-size: 18px;
     }
 
     #backToIndex {
         width: 60px;
         height: 60px;
         font-size: 28px;
-        top: 15px;
-        left: 15px;
+    }
+
+    .cv-download-button {
+        display: inline-block;
+        background-color: #0d1218;
+        color: white;
+        padding: 14px 24px;
+        text-align: center;
+        border-radius: 6px;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: bold;
+        margin: 20px auto;
     }
 }

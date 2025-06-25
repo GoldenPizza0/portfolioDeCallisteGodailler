@@ -12,9 +12,12 @@
 
         <div class="divCV">
             <h1>CV</h1>
-            <div class="iframe-container">
-                <iframe src="../pdf/CV_alternance.pdf#zoom=75" frameborder="0"></iframe>
-            </div>
+
+            <!-- Iframe visible uniquement sur ordinateur -->
+            <iframe src="../pdf/CV_alternance.pdf" width="40%" height="850px" class="cv-desktop"></iframe>
+
+            <!-- Bouton visible uniquement sur mobile -->
+            <a class="cv-download-button" href="../pdf/CV_alternance.pdf" download>Télécharger mon CV</a>
         </div>
 
         <form onsubmit="return sendMail();">
