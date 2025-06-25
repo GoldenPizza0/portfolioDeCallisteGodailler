@@ -18,6 +18,7 @@ header h1 {
     position: absolute;
     top: 40px;
     right: 40px;
+    z-index: 999;
 }
 
 .linkedin img {
@@ -105,9 +106,11 @@ header h1 {
 .mobile-nav a {
     font-size: 1.3rem;
     padding: 20px 40px;
+    min-width: 250px;
     width: 250px;
     text-align: center;
     box-sizing: border-box;
+    display: block;
 }
 
 .projects {
@@ -466,13 +469,20 @@ footer{
     }
 
     .linkedin {
-        top: 20px;
-        right: 20px;
+        top: 15px;
+        right: 15px;
+        z-index: 999;
     }
 
     .linkedin img {
-        width: 28px;
-        height: 28px;
+        width: 24px;
+        height: 24px;
+    }
+
+    .mobile-menu-toggle {
+        top: 15px;
+        right: 50px;
+        z-index: 1001;
     }
 
     /* Section A propos */
@@ -509,12 +519,20 @@ footer{
         align-items: center;
     }
 
+    .stages {
+        padding: 0 5px;
+        margin: 60px 5px;
+        overflow-x: hidden;
+    }
+
     .stage {
-        max-width: calc(100vw - 30px);
-        width: 100%;
-        padding: 25px 15px;
+        max-width: calc(100vw - 50px);
+        width: calc(100vw - 50px);
+        padding: 20px 12px;
         margin: 0;
         box-sizing: border-box;
+        overflow: hidden;
+        word-wrap: break-word;
     }
 
     .stage-title h3 {
