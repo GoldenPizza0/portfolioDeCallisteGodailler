@@ -114,6 +114,7 @@ h1 {
     justify-content: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s, background 0.3s;
+    z-index: 1000;
 }
 
 #backToIndex a{
@@ -126,47 +127,49 @@ h1 {
     transform: scale(1.1);
 }
 
-/* Base déjà fournie (à garder) */
-
-/* --- Responsive --- */
-@media (max-width: 600px) {
+/* Responsive design for mobile devices */
+@media (max-width: 768px) {
     body {
         padding: 10px;
     }
 
     .post-container {
-        width: 100vw; /* largeur totale de la fenêtre */
-        max-width: 100vw; /* pas de max-width limitant */
-        margin: 0; /* plus de marge */
+        width: calc(100vw - 20px);
+        max-width: none;
+        margin: 0;
         padding: 20px;
-        border-radius: 0; /* coins carrés */
-        box-shadow: none;
-        box-sizing: border-box; /* padding inclus dans la largeur */
+        border-radius: 8px;
+        box-sizing: border-box;
     }
 
     h1 {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
         margin-bottom: 15px;
     }
 
-    .intro,
+    .intro {
+        font-size: 1.15rem;
+        line-height: 1.5;
+    }
+
     .company-info p,
     .theme p,
-    .missions li,
     .closing p {
         font-size: 1.1rem;
-        line-height: 1.5;
+        line-height: 1.4;
     }
 
     .theme h2,
     .missions h2 {
-        font-size: 1.3rem;
+        font-size: 1.35rem;
         margin-top: 25px;
     }
 
     .missions li {
+        font-size: 1.05rem;
         padding-left: 18px;
         margin-bottom: 12px;
+        line-height: 1.4;
     }
 
     .linkedin-button a {
@@ -175,11 +178,59 @@ h1 {
     }
 
     #backToIndex {
-        width: 60px;
-        height: 60px;
-        font-size: 32px;
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
         top: 15px;
         left: 15px;
-        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+    }
+}
+
+/* Very small screens */
+@media (max-width: 480px) {
+    body {
+        padding: 8px;
+    }
+
+    .post-container {
+        width: calc(100vw - 16px);
+        padding: 16px;
+        border-radius: 6px;
+    }
+
+    h1 {
+        font-size: 1.4rem;
+    }
+
+    .intro {
+        font-size: 1.2rem;
+    }
+
+    .company-info p,
+    .theme p,
+    .closing p {
+        font-size: 1.15rem;
+    }
+
+    .theme h2,
+    .missions h2 {
+        font-size: 1.3rem;
+    }
+
+    .missions li {
+        font-size: 1.1rem;
+    }
+
+    .linkedin-button a {
+        padding: 16px 24px;
+        font-size: 1.15rem;
+    }
+
+    #backToIndex {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+        top: 12px;
+        left: 12px;
     }
 }
