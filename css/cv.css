@@ -1,39 +1,36 @@
 body {
     padding: 40px;
     background-color: #fff;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 18px;
-    line-height: 1.6;
+    font-family: 'Segoe UI', sans-serif;
     color: #000;
 }
 
 .divCV {
     text-align: center;
-    margin-bottom: 40px;
 }
 
 h1 {
-    font-size: 2.2em;
+    font-size: 2rem;
     margin-bottom: 20px;
 }
 
-.pdf-wrapper {
-    width: 100%;
-    max-width: 1000px;
-    margin: auto;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+/* iframe responsive */
+.iframe-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
 }
 
-.cv-frame {
-    width: 100%;
+.iframe-container iframe {
+    width: 80%;
     height: 850px;
     border: none;
 }
 
+/* formulaire */
 form {
     max-width: 600px;
     margin: auto;
-    font-size: 1.1em;
 }
 
 label {
@@ -41,6 +38,7 @@ label {
     display: block;
     margin-bottom: 6px;
     color: #333;
+    font-size: 1rem;
 }
 
 label span {
@@ -56,11 +54,10 @@ textarea {
     padding: 14px;
     margin-bottom: 25px;
     border: 1px solid #888;
-    border-radius: 4px;
-    font-size: 1em;
-    background-color: #fff;
-    color: #000;
+    border-radius: 0;
+    font-size: 16px;
     box-sizing: border-box;
+    background-color: #fff;
 }
 
 textarea {
@@ -73,7 +70,7 @@ button {
     color: white;
     border: none;
     padding: 14px 28px;
-    font-size: 1em;
+    font-size: 16px;
     cursor: pointer;
     border-radius: 6px;
     transition: background-color 0.3s ease;
@@ -83,6 +80,7 @@ button:hover {
     background-color: #1b1f24;
 }
 
+/* bouton retour */
 #backToIndex {
     position: fixed;
     top: 20px;
@@ -100,7 +98,6 @@ button:hover {
     justify-content: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s, background 0.3s;
-    z-index: 1000;
 }
 
 #backToIndex:hover {
@@ -108,27 +105,33 @@ button:hover {
     transform: scale(1.1);
 }
 
-/* ✅ Responsive : téléphone */
+/* --- Responsive --- */
 @media (max-width: 768px) {
     body {
         padding: 20px;
-        font-size: 16px;
     }
 
     h1 {
-        font-size: 1.6em;
+        font-size: 1.6rem;
     }
 
-    .cv-frame {
+    label,
+    input,
+    textarea,
+    button {
+        font-size: 1.1rem;
+    }
+
+    .iframe-container iframe {
+        width: 100%;
         height: 500px;
     }
 
-    button {
-        width: 100%;
-    }
-
-    form {
-        width: 100%;
-        padding: 0 10px;
+    #backToIndex {
+        width: 60px;
+        height: 60px;
+        font-size: 28px;
+        top: 15px;
+        left: 15px;
     }
 }
